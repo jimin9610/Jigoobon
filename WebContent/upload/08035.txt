@@ -1,0 +1,49 @@
+[페이징]
+- 리스트 페이지에서 페이징 처리
+- 공지사항 제외한 게시글 넘버링 처리
+- 게시물 리스트 출력 쿼리문 limit 설정
+- 페이지 뷰 내 홈페이지에서 코드 복붙;
+
+[첨부파일]
+- bbs 폴더 내 파일 복사하여 bbs2 폴더 생성
+- header에서 공지사항-첨부 메뉴 생성, bbs2/list.jsp로 링크
+- write의 form태그에 enctype="multipart/form-data" 추가해야 파일 전달 가능
+- multipartRequest 사용 위해 lib에 cos jar파일 추가
+- dbconnection에 import 처리
+  <%@ page import="com.oreilly.servlet.*" %>
+  <%@ page import="com.oreilly.servlet.multipart.*" %>
+- webContents에 upload 파일 추가
+- write_insert에 다음 추가
+  request.setCharacterEncoding("utf-8");
+
+  //String saveDir=application.getRealPath("/upload"); //웹호스팅 시 사용
+  String saveDir = "C:\\jsp_project\\web\\WebContent\\upload";
+  int maxSize= 5* 1024 * 1024; //업로드 될 파일의 크기제한, 단위:byte
+
+  MultipartRequest multi= new MultipartRequest(request,saveDir, maxSize,"utf-8",new DefaultFileRenamePolicy());
+
+  Enumeration files = multi.getFileNames();
+
+  String file1 = (String)files.nextElement();
+  String file1_name = multi.getOriginalFileName(file1); //사용자가 업로드한 파일명
+  String file1_rename = multi.getFilesystemName(file1); // 시스템 중복 처리 파일명
+- 이후 db부분은 request 대신 multi 사용하여 변경
+- view 페이지에서 file1변수 설정, 다운로드 링크 설정
+- modify 페이지 폼태그 enctype 추가, 파일 유무 체크
+- modify_update 부분 write_insert 참고하여 현재 페이지 파일 유무 체크하여 업데이트 구문 수정
+
+[검색관련 field, search 값 전달]
+- 제목부분, 리스트 목록 &field=<%=field%>&search=<%=search%> 추가
+- 리스트, 뷰 field, search 변수 추가, 조건 설정  !request.getParameter("search").equals("")
+
+[제목 길이 조절]
+- 리스트 페이지 length() 활용하여 변수 추가
+
+[비밀글]
+- 일반게시글 subject 부분에 img 추가
+
+[새글]
+- 최신글 처리 부분 복붙해와서 2일전까지 new 처리, 이미지 추가
+
+
+

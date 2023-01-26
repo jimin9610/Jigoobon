@@ -1,0 +1,14 @@
+테이블 형성 create
+태이블 삭제 drop
+테이블 사용 use
+테이블 확인 show
+테이블 속성 확인 desc,explain
+테이블 컬럼 집어넣기 insert into
+테이블에 uid-auto_increment 있을 때, value에 null 입력해 컬럼생략
+테이블 컬럼 수정 update set
+테이블 데이터 삭제 delete from
+테이블 데이터 조회 select from
+테이블 데이터 조회 제한 limit 0,n
+테이블 데이터 조회 조건 like '%%'
+테이블 (좌,우)조인 select from A (Left,Right)Join B on A. = B.
+그룹바이 조건절 select from A group by ~ having 조건 order by~

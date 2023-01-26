@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+	a{
+		text-decoration:none;
+		color:#0074a6;
+	}
+	a:visited {
+		text-decoration:none;
+		color:#0074a6;
+	}
+	#title{
+		  width:700px;
+		  height:45px;
+		  align:center;
+		  text-align:center;
+		  border-top: 1px solid #119cd6;
+		  border-bottom: 1px solid #119cd6;
+		  text-decoration:none;
+		  background-color:#e8f8ff;
+	}
+	#comm{
+		height:30px;
+		align:center;
+		text-align:center;
+		border-bottom: 1px solid #99e0ff;
+	}
+	#button1{
+			border: 1px solid white;
+			border-radius:6px;
+			background-color: skyblue;
+			color:white;
+			padding:5px;
+			cursor: pointer;
+	}
+	#button2{
+		border: 1px solid white;
+		border-radius:6px;
+		background-color: #ff7d9e;
+		color:white;
+		padding:5px;
+		cursor: pointer;
+	}
+	#button{
+		border: 1px solid white;
+		border-radius:6px;
+		background-color: skyblue;
+		color:white;
+		padding:5px;
+		cursor: pointer;
+		width:80px;
+		height:60px;
+	}
+	
+	
